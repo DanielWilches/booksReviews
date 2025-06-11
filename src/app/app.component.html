@@ -1,14 +1,12 @@
-
 <div class="bg-gray-50 min-h-screen flex flex-col">
-    <!-- Header -->
-   <app-header></app-header>
+  <!-- Header -->
+  <app-header [openAuthModal]="openAuthModal"></app-header>
+  <app-book-user [showModalProperty]="showAuthModal"></app-book-user>
+  <!-- Main Content -->
+  <router-outlet></router-outlet>
 
-    <!-- Main Content -->
-    <router-outlet></router-outlet>
-
-    <!-- Footer -->
-    <app-footter></app-footter>
+  <!-- Footer -->
+  <app-footter></app-footter>
 
 
 </div>
-

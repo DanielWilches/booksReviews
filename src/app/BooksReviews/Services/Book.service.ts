@@ -31,19 +31,19 @@ getBooks(): Observable<ModelResult<BookModel>> {
 
   GetBookByauthor(author: string): Observable<ModelResult<BookModel>> {
     return this.http.get<ModelResult<BookModel>>(
-      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}?author=${author}`
+      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}/author/${author}`
     );
   }
 
   GetBookByTitle(title: string): Observable<ModelResult<BookModel>> {
     return this.http.get<ModelResult<BookModel>>(
-      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}?title=${title}`
+      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}/title/${title}`
     );
   }
 
   GetBookByCategory(category: string): Observable<ModelResult<BookModel>> {
     return this.http.get<ModelResult<BookModel>>(
-      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}?category=${category}`
+      `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}/category/${category}`
     );
   }
 

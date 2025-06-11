@@ -1,13 +1,13 @@
 <div class="mb-6">
-            <div class="flex flex-col md:flex-row gap-4">
-                <input type="text" placeholder="Buscar por título, autor o categoría..."
-                       class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <select class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="">Todas las categorías</option>
-                    <option value="fiction">Ficción</option>
-                    <option value="fantasy">Fantasía</option>
-                    <option value="sci-fi">Ciencia Ficción</option>
-                    <!-- Más opciones aquí -->
-                </select>
-            </div>
-        </div>
+  <div class="flex flex-col md:flex-row gap-4">
+    <input type="text" (blur)="onInputBlur($event)" (keyup.enter)="onInputBlur($event)" placeholder="Search Book..."
+      class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <select (change)="onCategoryChange($event)"
+      class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option value="" disabled selected>Select a category</option>
+      <option value="title">title</option>
+      <option value="author">author</option>
+      <option value="category">category</option>
+    </select>
+  </div>
+</div>

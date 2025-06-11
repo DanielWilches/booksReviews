@@ -27,8 +27,20 @@ export class UserService {
       credentials
     );
   }
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+    return !!token; // Devuelve true si hay un token, false si no
+  }
 
   logout(token: string): Observable<ModelResult<any>> {
+    localStorage.setItem('token', token);
     return this.http.post<ModelResult<any>>(
       `${environment.BooksURL}/api/${environment.Version}/User/logout`,
       { token }
