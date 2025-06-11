@@ -16,7 +16,14 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "baseUrl": ".",
+    "paths": {
+      "@Environments/*":["src/environments/*"],
+      "@Interfaces/*":["src/app/BooksReviews/Interfaces/*"],
+      "@Services/*":["src/app/BooksReviews/Services/*"],
+
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
