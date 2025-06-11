@@ -1,10 +1,37 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { environment } from '@Environments/environment';
+import { Observable } from 'rxjs';
+import { ModelResult } from '@Interfaces/ModelResult.interface';
+import { UserModel } from '@Interfaces/UserModel.interfaces';
+import { RegisterModel } from '@Interfaces/RegisterModel.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private http: HttpClient = Inject(HttpClient);
   constructor() { }
 
+  createUser(user: RegisterModel): Observable<ModelResult<UserModel>> {
+    return this.http.post<ModelResult<UserModel>>(
+      `${environment.BooksURL}/api/${environment.Version}/User/Create`,
+      user
+    );
+  }
+
+  login(credentials: { userName: string; password: string }): Observable<ModelResult<UserModel>> {
+    return this.http.post<ModelResult<UserModel>>(
+      `${environment.BooksURL}/api/${environment.Version}/User/login`,
+      credentials
+    );
+  }
+
+  logout(token: string): Observable<ModelResult<any>> {
+    return this.http.post<ModelResult<any>>(
+      `${environment.BooksURL}/api/${environment.Version}/User/logout`,
+      { token }
+    );
+  }
 }
