@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { inject, Inject, Injectable } from '@angular/core';
 import { environment } from '@Environments/environment';
 import { Observable } from 'rxjs';
 import { ModelResult } from '../Interfaces/ModelResult.interface';
@@ -10,10 +10,12 @@ import { ReviewModel } from '../Interfaces/ReviewModel.interface';
 })
 export class ReviewService {
 
-  private http: HttpClient = Inject(HttpClient);
+  private http: HttpClient = inject(HttpClient);
   constructor() { }
 
   createReview(review: ReviewModel): Observable<ModelResult<ReviewModel>> {
+
+    console.log('Creating review:', review);
     return this.http.post<ModelResult<ReviewModel>>(
       `${environment.BooksURL}/api/${environment.Version}/reviews`,
       review

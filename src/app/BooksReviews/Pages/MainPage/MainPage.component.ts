@@ -25,7 +25,6 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((result: ModelResult<BookModel>) => {
-      console.log(result);
       if (result.code == 200 && result.data) {
         this.bookState.setBooks(result.data);
       }

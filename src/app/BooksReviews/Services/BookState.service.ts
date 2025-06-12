@@ -7,6 +7,9 @@ import { BookModel } from '@Interfaces/BookModel.interface';
 export class BookStateService {
   books: WritableSignal<BookModel[]> = signal<BookModel[]>([]);
 
+  GetBookId(id: number): BookModel | undefined {
+    return this.books() .find(book => book.id === id);
+  }
 
   setBooks(newBooks: BookModel[]) {
     this.books.set(newBooks);

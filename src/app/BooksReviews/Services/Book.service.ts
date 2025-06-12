@@ -17,7 +17,7 @@ export class BookService {
 
   constructor() { }
 
-getBooks(): Observable<ModelResult<BookModel>> {
+  getBooks(): Observable<ModelResult<BookModel>> {
     return this.http.get<ModelResult<BookModel>>(
       `${environment.BooksURL}/api/${environment.Version}/${environment.BooksApi}`
     );
