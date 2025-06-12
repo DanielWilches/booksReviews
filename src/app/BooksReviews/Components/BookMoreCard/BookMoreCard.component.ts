@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, InputSignal, WritableSignal, Signal, Output, EventEmitter } from '@angular/core';
 import { BookStateService } from '@Services/BookState.service';
 import { BookModel } from '@Interfaces/BookModel.interface';
+import { AddReviewComponent } from "../AddReview/AddReview.component";
 
 @Component({
   selector: 'app-book-more-card',
-  imports: [],
+  imports: [AddReviewComponent],
   templateUrl: './BookMoreCard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

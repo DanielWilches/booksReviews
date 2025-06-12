@@ -1,14 +1,14 @@
 import { UserModel } from "./UserModel.interfaces";
+import { BookModel } from "./BookModel.interface";
 
 export interface ReviewModel {
-    id: number;
+    id?: number;
     userId: number;
     bookId: number;
     rating: number; // 1 a 5
     reviewText?: string;
     createdDate: Date;
     modifiedDate?: Date;
-    // Relaciones opcionales (puedes definir interfaces UserModel y BookModel si las necesitas)
     user?: UserModel;
-    book?: any;
+    book?: BookModel;
 }

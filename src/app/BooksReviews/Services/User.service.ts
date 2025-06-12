@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { inject, Inject, Injectable } from '@angular/core';
 import { environment } from '@Environments/environment';
 import { Observable } from 'rxjs';
 import { ModelResult } from '@Interfaces/ModelResult.interface';
@@ -11,7 +11,7 @@ import { RegisterModel } from '@Interfaces/RegisterModel.interface';
 })
 export class UserService {
 
-  private http: HttpClient = Inject(HttpClient);
+  private http: HttpClient = inject(HttpClient);
   constructor() { }
 
   createUser(user: RegisterModel): Observable<ModelResult<UserModel>> {

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { CurrentColor } from './../../../../../node_modules/lightningcss/node/ast.d';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import { UserStateService } from '@Services/UserState.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,8 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  userState = inject(UserStateService);
+  currentUser = this.userState.currentUser;
+
   @Input() openAuthModal!: () => void;
 }
